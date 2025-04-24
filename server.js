@@ -12,7 +12,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://pmhunts.github.io',
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Connect to MongoDB
@@ -210,6 +214,11 @@ app.delete('/api/passwords/:id', auth, async (req, res) => {
     } catch (error) {
         res.status(500).send({ error: error.message });
     }
+});
+
+// Root route to confirm server is running
+app.get('/', (req, res) => {
+    res.send('SecureVault backend server is running.');
 });
 
 // Start server

@@ -25,7 +25,7 @@ const strengthText = document.getElementById('strengthText');
 const strengthIndicator = document.getElementById('strengthIndicator');
 
 // API Base URL - change this to your server URL in production
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://your-render-service-name.onrender.com/api';
 
 // State variables
 let isLogin = true;
