@@ -90,7 +90,7 @@ async function handleFormSubmit(e) {
             console.log("Attempting login for:", username);
             
             try {
-                const response = await fetch(`${API_BASE_URL}/users/login`, {
+const response = await fetch(`${API_BASE_URL}/api/users/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ async function handleFormSubmit(e) {
             }
 
             try {
-                const response = await fetch(`${API_BASE_URL}/users/register`, {
+const response = await fetch(`${API_BASE_URL}/api/users/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -203,7 +203,7 @@ function logoutUser() {
 // Password entry management
 async function loadPasswordEntries() {
     try {
-        const response = await fetch(`${API_BASE_URL}/passwords`, {
+        const response = await fetch(`${API_BASE_URL}/api/passwords`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${currentUserToken}`
@@ -395,7 +395,7 @@ async function deletePasswordEntry(entryId) {
     if (!confirm('Are you sure you want to delete this password entry?')) return;
     
     try {
-        const response = await fetch(`${API_BASE_URL}/passwords/${entryId}`, {
+        const response = await fetch(`${API_BASE_URL}/api/passwords/${entryId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${currentUserToken}`
@@ -554,7 +554,7 @@ passwordForm.addEventListener('submit', async (e) => {
     try {
         if (editingEntryId) {
             // Update existing entry
-            const response = await fetch(`${API_BASE_URL}/passwords/${editingEntryId}`, {
+            const response = await fetch(`${API_BASE_URL}/api/passwords/${editingEntryId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -582,7 +582,7 @@ passwordForm.addEventListener('submit', async (e) => {
             }
         } else {
             // Add new entry
-            const response = await fetch(`${API_BASE_URL}/passwords`, {
+            const response = await fetch(`${API_BASE_URL}/api/passwords`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
